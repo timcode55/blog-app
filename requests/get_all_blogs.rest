@@ -1,0 +1,23 @@
+GET http://localhost:3003/api/blogs
+
+###
+POST http://localhost:3003/api/blogs/ 
+content-type: application/json
+
+{
+    "title": 'How to Beat the High Cost of Living',
+  "author": 'Dabney Coleman',
+  "url": "http://www.HBHC.com",
+  "likes": 650
+}
+
+###
+DELETE http://localhost:3001/api/persons/fsfs
+
+###
+PUT  http://localhost:3001/api/persons/61522ac3cf29e535787fe9fd 
+content-type: application/json
+
+{
+    "number": "444-555-5555"
+}
