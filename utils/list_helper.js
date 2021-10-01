@@ -42,30 +42,13 @@ const mostBlogs = (blogs) => {
 };
 
 const mostLikes = (blogs) => {
-	// let count = _.sumBy(
-	// 	blogs.map((item) => {
-	// 		return item;
-	// 	})
-	// );
-	// console.log(count, 'COUNT*****');
-	// let max = _.max(Object.values(count));
-	// for (let key in count) {
-	// 	if (count[key] === max) {
-	// 		return { author: key, blogs: max };
-	// 	}
-	// }
-	// return 5;
 	let object = {};
 	for (let item of blogs) {
-		// console.log(item, 'ITEM');
-		// console.log(acc, 'ACC');
-		// console.log(val, 'VAL');
 		if (!object[item.author]) {
 			object[item.author] = item.likes;
 		} else {
 			object[item.author] += item.likes;
 		}
-		// return object;
 	}
 	console.log(object, 'OBJECT*****');
 
@@ -76,9 +59,6 @@ const mostLikes = (blogs) => {
 		}
 	}
 };
-
-// const obj = {};
-// if (Object.keys(blogs))
 
 module.exports = {
 	dummy,

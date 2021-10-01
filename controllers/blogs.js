@@ -23,16 +23,28 @@ blogsRouter.get('/', (request, response) => {
 // 		.catch((error) => next(error));
 // });
 
-blogsRouter.post('/', (request, response, next) => {
+blogsRouter.post('/', async (request, response, next) => {
 	const blog = new Blog(request.body);
 
-	blog.save().then((result) => {
-		response.status(201).json(result);
-	});
+	try {
+		await blog.save().then((result) => {
+			response.status(201).json(result);
+		});
+	} catch (exception) {
+		next(exception);
+	}
 });
 
-blogsRouter.delete('/:id', (request, response, next) => {
-	Person.findByIdAndRemove(request.params.id)
+blogsRouter.get('/:id', async (request, response, next) => {
+	await Blog.findById(request.params.id)
+		.then((result) => {
+			response.status(200).send(result);
+		})
+		.catch((error) => next(error));
+});
+
+blogsRouter.delete('/:id', async (request, response, next) => {
+	await Blog.findByIdAndRemove(request.params.id)
 		.then(() => {
 			response.status(204).end();
 		})
@@ -42,14 +54,14 @@ blogsRouter.delete('/:id', (request, response, next) => {
 blogsRouter.put('/:id', (request, response, next) => {
 	const body = request.body;
 
-	const person = {
+	const blog = {
 		content: body.content,
 		important: body.important
 	};
 
-	Person.findByIdAndUpdate(request.params.id, person, { new: true })
-		.then((updatedPerson) => {
-			response.json(updatedPerson.toJSON());
+	Blog.findByIdAndUpdate(request.params.id, blog, { new: true })
+		.then((updatedBlog) => {
+			response.json(updatedBlog.toJSON());
 		})
 		.catch((error) => next(error));
 });
