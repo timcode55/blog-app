@@ -12,12 +12,12 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:3001/api/persons/fsfs
+DELETE http://localhost:3003/api/blogs/61576163fb0414ca67921c95
 
 ###
-PUT  http://localhost:3001/api/persons/61522ac3cf29e535787fe9fd 
+PUT  http://localhost:3003/api/blogs/615760cfb05fba745bed1f54 
 content-type: application/json
 
 {
-    "number": "444-555-5555"
+    "likes": 2654
 }

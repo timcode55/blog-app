@@ -18,12 +18,13 @@ const initialBlogs = [
 		likes: 275
 	}
 ];
+
 beforeEach(async () => {
 	await Blog.deleteMany({});
-	let blogObject = new Blog(helper.initialBlogs[0]);
-	await blogObject.save();
-	blogObject = new Blog(helper.initialBlogs[1]);
-	await blogObject.save();
+	for (let blog of helper.initialBlogs) {
+		let blogObject = new Blog(blog);
+		await blogObject.save();
+	}
 });
 
 test('notes are returned as json', async () => {
@@ -55,7 +56,7 @@ test('a valid blog can be added', async () => {
 		likes: 325
 	};
 
-	await api.post('/api/blogs').send(newBlog).expect(201).expect('Content-Type', /application\/json/);
+	await api.post('/api/blogs').send(newBlog).expect(200).expect('Content-Type', /application\/json/);
 
 	const response = await api.get('/api/blogs');
 
@@ -96,4 +97,46 @@ test('a blog can be deleted', async () => {
 	const contents = blogsAtEnd.map((r) => r.title);
 
 	expect(contents).not.toContain(blogToDelete.title);
+});
+
+test('there is an id value', async () => {
+	const blogsAtStart = await helper.blogsInDb();
+	const blogToView = blogsAtStart[0];
+	const resultBlog = await api.get(`/api/blogs/${blogToView.id}`);
+	console.log(resultBlog, 'RESULTBLOG');
+	expect(resultBlog).toBeDefined();
+});
+
+test('if likes property is missing then 0', async () => {
+	const newBlog = {
+		title: "Let's Learn Some Stuff",
+		author: 'Master Instructor',
+		url: 'http://www.Learn.com'
+	};
+
+	if (!newBlog.likes) {
+		newBlog.likes = 0;
+	}
+
+	await api.post('/api/blogs').send(newBlog);
+
+	const blogsAtEnd = await helper.blogsInDb();
+	const lastBlog = blogsAtEnd[blogsAtEnd.length - 1];
+	console.log(lastBlog, 'LASTBLOG');
+
+	expect(lastBlog.likes).toEqual(0);
+});
+
+test('blog is missing title and url with 400', async () => {
+	const newBlog = {
+		author: 'Master Instructor',
+		likes: 325
+	};
+
+	if (!newBlog.title && !newBlog.url) {
+		const sendBlog = await api.post('/api/blogs').send(newBlog).expect(400);
+	}
+
+	const blogsAtEnd = await helper.blogsInDb();
+	const lastBlog = blogsAtEnd[blogsAtEnd.length - 1];
 });

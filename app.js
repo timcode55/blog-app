@@ -4,6 +4,7 @@ const middleware = require('./utils/middleware');
 const logger = require('./utils/logger');
 const http = require('http');
 const express = require('express');
+require('express-async-errors');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
