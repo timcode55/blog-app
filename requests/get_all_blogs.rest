@@ -5,14 +5,15 @@ POST http://localhost:3003/api/blogs/
 content-type: application/json
 
 {
-    "title": "How to Beat the High Cost of Living",
-  "author": "Dabney Coleman",
-  "url": "http://www.HBHC.com",
-  "likes": 650
+  "title": "Traveling in Nature",
+  "author": "World Traveler",
+  "url": "http://www.Mountains.com",
+  "likes": 345,
+  "userId": "6159db6490432326f54b8374"
 }
 
 ###
-DELETE http://localhost:3003/api/blogs/61576163fb0414ca67921c95
+DELETE http://localhost:3003/api/blogs/6159d82e40e87a281f0d4515
 
 ###
 PUT  http://localhost:3003/api/blogs/615760cfb05fba745bed1f54 
@@ -20,4 +21,17 @@ content-type: application/json
 
 {
     "likes": 2654
+}
+
+###
+GET http://localhost:3003/api/users/ 
+
+###
+POST http://localhost:3003/api/users/ 
+content-type: application/json
+
+{
+    "username": "tombeam33",
+    "name": "Tom DoGood",
+    "password": "salainen"
 }
