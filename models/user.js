@@ -20,8 +20,6 @@ const userSchema = new mongoose.Schema({
 	]
 });
 
-// userSchema.plugin(uniqueValidator);
-
 userSchema.set('toJSON', {
 	transform: (document, returnedObject) => {
 		returnedObject.id = returnedObject._id.toString();
@@ -31,6 +29,8 @@ userSchema.set('toJSON', {
 		delete returnedObject.passwordHash;
 	}
 });
+
+// userSchema.plugin(uniqueValidator);
 
 const User = mongoose.model('User', userSchema);
 

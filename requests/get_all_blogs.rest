@@ -3,14 +3,14 @@ GET http://localhost:3003/api/blogs
 ###
 POST http://localhost:3003/api/blogs/ 
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRha290YTc2IiwiaWQiOiI2MTU5ZTE3MDZlMDg2ZWNhMjRjMDg3NzMiLCJpYXQiOjE2MzMzNjQ3MDB9.Uu8HLwfLLwUtZs2PahoIK3H68HPR7QjvVOKhI5f5-VY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdzZmdzZmdzZGciLCJpZCI6IjYxNWIzYTgxYjhkNGI5ODBiNjQwMTM1OSIsImlhdCI6MTYzMzM3NDk0MywiZXhwIjoxNjMzMzc4NTQzfQ.1Qt8HOa4WyeOtKaZESh6384-Mgvj1Kg_VedNnYfV8Xo
 
 {
-  "title": "Pill Bottle",
-  "author": "Dakota Van",
-  "url": "http://www.Mountains.com",
-  "likes": 10,
-  "userId": "615b397f4e1f78e4f1571b66"
+  "title": "More Stuff's Blog Post",
+  "author": "More Stuff",
+  "url": "http://www.donuts.com",
+  "likes": 1063,
+  "userId": "615b3a81b8d4b980b6401359"
 }
 
 ###
