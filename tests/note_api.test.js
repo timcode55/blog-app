@@ -192,3 +192,19 @@ describe('when there is initially one user in db', () => {
 		expect(usersAtEnd).toHaveLength(usersAtStart.length);
 	});
 });
+
+test('invalid users are not created', async () => {
+	const usersAtStart = await helper.usersInDb();
+
+	const newUser = {
+		username: 'root',
+		name: 'Superuser'
+	};
+
+	const result = await api.post('/api/users').send(newUser).expect(400).expect('Content-Type', /application\/json/);
+
+	expect(result.body.error).toContain('UN or PW is missing');
+
+	const usersAtEnd = await helper.usersInDb();
+	expect(usersAtEnd).toHaveLength(usersAtStart.length);
+});
