@@ -3,13 +3,13 @@ GET http://localhost:3003/api/blogs
 ###
 POST http://localhost:3003/api/blogs/ 
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdzZmdzZmdzZGciLCJpZCI6IjYxNWIzYTgxYjhkNGI5ODBiNjQwMTM1OSIsImlhdCI6MTYzMzM3NDk0MywiZXhwIjoxNjMzMzc4NTQzfQ.1Qt8HOa4WyeOtKaZESh6384-Mgvj1Kg_VedNnYfV8Xo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdzZmdzZmdzZGciLCJpZCI6IjYxNWIzYTgxYjhkNGI5ODBiNjQwMTM1OSIsImlhdCI6MTYzMzM3ODM3MiwiZXhwIjoxNjMzMzgxOTcyfQ.6vNAVy3G-LNb4QRBQ1H63SS1k2Hyd3TXNGY746tpQw0
 
 {
-  "title": "More Stuff's Blog Post",
+  "title": "Going to the Driving Range",
   "author": "More Stuff",
-  "url": "http://www.donuts.com",
-  "likes": 1063,
+  "url": "http://www.golf.com",
+  "likes": 163,
   "userId": "615b3a81b8d4b980b6401359"
 }
 
