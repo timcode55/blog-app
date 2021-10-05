@@ -16,7 +16,7 @@ const getTokenFrom = (request) => {
 };
 
 blogsRouter.get('/', async (request, response) => {
-	const blogs = await Blog.find({}).populate('user', { username: 1, name: 1 });
+	const blogs = await Blog.find({}).populate('user', { username: 1, name: 1, password: 1 });
 	response.json(blogs.map((blog) => blog.toJSON()));
 });
 
@@ -47,17 +47,38 @@ blogsRouter.post('/', async (request, response) => {
 });
 
 blogsRouter.get('/:id', async (request, response, next) => {
+	// const body = request.body;
+	const token = getTokenFrom(request);
 	const blog = await Blog.findById(request.params.id);
 	if (blog) {
 		response.json(blog);
 	} else {
 		response.status(404).end();
 	}
+
+	const decodedToken = jwt.verify(token, process.env.SECRET);
+	if (!token || !decodedToken.id) {
+		return response.status(401).json({ error: 'token missing or invalid' });
+	}
+
+	const user = await User.findById(decodedToken.id);
+	// if ( blog.user.toString() === userid.toString() )
 });
 
 blogsRouter.delete('/:id', async (request, response) => {
-	await Blog.findByIdAndRemove(request.params.id);
-	response.status(204).end();
+	const token = getTokenFrom(request);
+	const blog = await Blog.findById(request.params.id);
+
+	const decodedToken = jwt.verify(token, process.env.SECRET);
+
+	const user = await User.findById(decodedToken.id);
+
+	if (!token || blog.user.toString() !== user.id.toString()) {
+		return response.status(401).json({ error: 'token missing or invalid or you are not the correct user' });
+	} else {
+		await Blog.findByIdAndRemove(request.params.id);
+		response.status(204).end();
+	}
 });
 
 blogsRouter.put('/:id', (request, response, next) => {

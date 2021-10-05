@@ -3,7 +3,7 @@ GET http://localhost:3003/api/blogs
 ###
 POST http://localhost:3003/api/blogs/ 
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdzZmdzZmdzZGciLCJpZCI6IjYxNWIzYTgxYjhkNGI5ODBiNjQwMTM1OSIsImlhdCI6MTYzMzM3ODM3MiwiZXhwIjoxNjMzMzgxOTcyfQ.6vNAVy3G-LNb4QRBQ1H63SS1k2Hyd3TXNGY746tpQw0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFub3RoZXJkYXkiLCJpZCI6IjYxNWM5MmM4NzQ1MGJkY2Q0Y2ZjZDdkNSIsImlhdCI6MTYzMzQ1Njk3OCwiZXhwIjoxNjMzNDYwNTc4fQ.gRmjyEgQz1Qsfixg6xNBUVrsybEelv941gF_jwX-Q8c
 
 {
   "title": "Going to the Driving Range",
@@ -14,7 +14,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdzZ
 }
 
 ###
-DELETE http://localhost:3003/api/blogs/6159e568e05f480b8ae503a2
+DELETE http://localhost:3003/api/blogs/615c93647450bdcd4cfcd7db
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3VzZXJ0aW1lIiwiaWQiOiI2MTVjOTY2YjE0NTMyYzk1MDI5M2Q1NDciLCJpYXQiOjE2MzM0NTc3ODksImV4cCI6MTYzMzQ2MTM4OX0.ivxjvi5RVmw7EMxJofZL_V2zavolZG1NDWhfB57m7RM
+
+###
+GET http://localhost:3003/api/blogs/615c93647450bdcd4cfcd7db
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFub3RoZXJkYXkiLCJpZCI6IjYxNWM5MmM4NzQ1MGJkY2Q0Y2ZjZDdkNSIsImlhdCI6MTYzMzQ1Njk3OCwiZXhwIjoxNjMzNDYwNTc4fQ.gRmjyEgQz1Qsfixg6xNBUVrsybEelv941gF_jwX-Q8c
 
 ###
 PUT  http://localhost:3003/api/blogs/615b389aa84143492c07c2e0 
@@ -32,7 +39,7 @@ POST http://localhost:3003/api/users/
 content-type: application/json
 
 {
-    "username": "gsfgsfgsdg",
-    "name": "panama",
-    "password": "jhsdfsfsds"
+    "username": "newusertime",
+    "name": "swole",
+    "password": "darkness33"
 }
