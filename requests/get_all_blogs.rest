@@ -3,20 +3,20 @@ GET http://localhost:3003/api/blogs
 ###
 POST http://localhost:3003/api/blogs/ 
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFub3RoZXJkYXkiLCJpZCI6IjYxNWM5MmM4NzQ1MGJkY2Q0Y2ZjZDdkNSIsImlhdCI6MTYzMzQ1Njk3OCwiZXhwIjoxNjMzNDYwNTc4fQ.gRmjyEgQz1Qsfixg6xNBUVrsybEelv941gF_jwX-Q8c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0ZWVsY2FzZWR1ZGUiLCJpZCI6IjYxNWUxYTMyMDNmYzg3NzY0MjEzNzIxOSIsImlhdCI6MTYzMzgwNjI2NywiZXhwIjoxNjMzODA5ODY3fQ.KsLMkuOtDVaPaliivaPZ0TcQAJa11OW2p59c8unbpBk
 
 {
-  "title": "Going to the Driving Range",
+  "title": "Adding Some Likes",
   "author": "More Stuff",
-  "url": "http://www.golf.com",
-  "likes": 163,
-  "userId": "615b3a81b8d4b980b6401359"
+  "url": "http://www.winter.com",
+  "likes": 643,
+  "userId": "615e1a3203fc877642137219"
 }
 
 ###
-DELETE http://localhost:3003/api/blogs/615c93647450bdcd4cfcd7db
+DELETE http://localhost:3003/api/blogs/615e1a4f03fc87764213721d
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3VzZXJ0aW1lIiwiaWQiOiI2MTVjOTY2YjE0NTMyYzk1MDI5M2Q1NDciLCJpYXQiOjE2MzM0NTc3ODksImV4cCI6MTYzMzQ2MTM4OX0.ivxjvi5RVmw7EMxJofZL_V2zavolZG1NDWhfB57m7RM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0ZWVsY2FzZWR1ZGUiLCJpZCI6IjYxNWUxYTMyMDNmYzg3NzY0MjEzNzIxOSIsImlhdCI6MTYzMzU1NzA0OCwiZXhwIjoxNjMzNTYwNjQ4fQ.KUiW1Zi84m8Bl5eyZXIU1Oxhh9f5PS0NQHRjyYf4RSk
 
 ###
 GET http://localhost:3003/api/blogs/615c93647450bdcd4cfcd7db
@@ -39,7 +39,7 @@ POST http://localhost:3003/api/users/
 content-type: application/json
 
 {
-    "username": "newusertime",
-    "name": "swole",
-    "password": "darkness33"
+    "username": "steelcasedude",
+    "name": "Ryan Steel",
+    "password": "chairsrock33"
 }

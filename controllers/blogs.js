@@ -22,6 +22,7 @@ blogsRouter.get('/', async (request, response) => {
 
 blogsRouter.post('/', async (request, response) => {
 	const body = request.body;
+	console.log(body, 'BODY25*****');
 	const token = getTokenFrom(request);
 
 	const decodedToken = jwt.verify(token, process.env.SECRET);
@@ -35,7 +36,6 @@ blogsRouter.post('/', async (request, response) => {
 		title: body.title,
 		author: body.author,
 		url: body.url,
-		likes: body.likes,
 		user: user._id
 	});
 
