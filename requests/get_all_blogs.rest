@@ -3,7 +3,7 @@ GET http://localhost:3003/api/blogs
 ###
 POST http://localhost:3003/api/blogs/ 
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0ZWVsY2FzZWR1ZGUiLCJpZCI6IjYxNWUxYTMyMDNmYzg3NzY0MjEzNzIxOSIsImlhdCI6MTYzMzgwNjI2NywiZXhwIjoxNjMzODA5ODY3fQ.KsLMkuOtDVaPaliivaPZ0TcQAJa11OW2p59c8unbpBk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0ZWVsY2FzZWR1ZGUiLCJpZCI6IjYxNWUxYTMyMDNmYzg3NzY0MjEzNzIxOSIsImlhdCI6MTYzNDA1NjI3MywiZXhwIjoxNjM0MDU5ODczfQ.qxJk4hrRXErjdKj_TplSkEA8hcov39pSYsJtQnYV_TU
 
 {
   "title": "Adding Some Likes",

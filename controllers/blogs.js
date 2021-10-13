@@ -71,51 +71,23 @@ blogsRouter.get("/:id", async (request, response, next) => {
 });
 
 blogsRouter.delete("/:id", async (request, response) => {
-  const token = getTokenFrom(request);
-  const blog = await Blog.findById(request.params.id);
-
-  const decodedToken = jwt.verify(token, process.env.SECRET);
-
-  const user = await User.findById(decodedToken.id);
-
-  if (!token || blog.user.toString() !== user.id.toString()) {
-    return response.status(401).json({
-      error: "token missing or invalid or you are not the correct user"
-    });
-  } else {
-    await Blog.findByIdAndRemove(request.params.id);
-    response.status(204).end();
-  }
+  await Blog.findByIdAndRemove(request.params.id);
+  response.status(204).end();
 });
 
 blogsRouter.put("/:id", async (request, response, next) => {
   const body = request.body;
-  console.log(request.body, "REQ.BODY");
-  let updatedLikes = body.likes;
-  // const token = await getTokenFrom(request);
-  let updateBlog = await Blog.findById(request.params.id);
-  setTimeout(() => {
-    console.log(updatedLikes, " UPDATEBLOG******");
-  }, 5000);
-  // const decodedToken = jwt.verify(token, process.env.SECRET);
+  let updatedLikes = body.likes + 1;
 
-  // const user = await User.findById(decodedToken.id);
-
-  updateBlog = {
-    likes: updatedLikes++
+  let updateBlog = {
+    likes: updatedLikes
   };
-  // if (!token || blog.user.toString() !== user.id.toString()) {
-  //   return response.status(401).json({
-  //     error: "token missing or invalid or you are not the correct user"
-  //   });
-  // } else {
+
   await Blog.findByIdAndUpdate(request.params.id, updateBlog, { new: true })
     .then((updatedBlog) => {
       response.json(updatedBlog.toJSON());
-      console.log(updatedBlog.toJSON(), "updatedBlog.toJSON()");
     })
     .catch((error) => next(error));
 });
-// });
 
 module.exports = blogsRouter;
